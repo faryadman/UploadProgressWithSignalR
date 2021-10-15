@@ -38,7 +38,7 @@ namespace UploadProgressWithSignalR.Pages
                     totalReadBytes += readBytes;
                     int progress = (int)((float)totalReadBytes / (float)totalByte * 100.0);
                     await _notifyHub.Clients.All.SendAsync("updateProgress", progress);
-                    await Task.Delay(10);//It is only to make the progress slower!
+                    await Task.Delay(200);//It is only to make the progress slower!
                 }
                 TempData["message"] = $"{file.FileName} Uploaded!";
                 return Page();
